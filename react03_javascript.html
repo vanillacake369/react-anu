@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/earlyaccess/jejugothic.css">
+    <style>
+        * {
+            font-family: 'Jeju Gothic', serif;
+        }
+
+        header {
+            height: 100px;
+            background-image: linear-gradient(to right, yellow, white, green);
+            text-align: center;
+            padding-top: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 10px auto;
+            height: 50px;
+            width: 200px;
+            background-image: linear-gradient(to right, rgb(236, 182, 227), rgb(227, 109, 193));
+            border-radius: 10px;
+            box-shadow: 2px 2px 2px gray;
+            text-align: center;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+
+<body onload="displayTitle();">
+    <header id="title"></header>
+    <hr>
+    <button onclick="displayImage();">큐티이미지추가</button><br>
+    <div id="area"></div>
+
+    <script>
+        const displayTitle = () => {
+            const hdom = document.querySelector("#title");
+            const korDayName = ['일', '월', '화', '수', '목', '금', '토'];
+            hdom.innerHTML = `<h1>**오늘은 ${korDayName[new Date().getDay()]}요일입니다**</h1>`;
+        }
+        const displayImage = () => {
+            const divdom = document.getElementsByTagName("div")[0];
+            const imageName = Math.floor(Math.random() * 10) + 1;
+            console.log(imageName);
+            divdom.innerHTML += "<img src='images/pic" + imageName + ".png' width='100'>";
+        }
+    </script>
+</body>
+
+</html>
